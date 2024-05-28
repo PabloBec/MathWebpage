@@ -1,0 +1,39 @@
+﻿@page
+@model HerramientasMates.Pages.Index1Model
+@{
+    ViewData["Title"] = "Bezout";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Identidad de Bezout</h1>
+    <p>Esta página calcula el <a href="https://es.wikipedia.org/wiki/M%C3%A1ximo_com%C3%BAn_divisor">Máximo Común Divisor</a> (mcd), el <a href="https://es.wikipedia.org/wiki/M%C3%ADnimo_com%C3%BAn_m%C3%BAltiplo">Mínimo Común Múltiplo</a> (mcm) y la <a href="https://es.wikipedia.org/wiki/Identidad_de_B%C3%A9zout">Identidad de Bezout</a> entre dos enteros no nulos cualesquiera.</p>
+    
+    <!--Input-->
+    <form method="POST">
+        <p>Introduce a continuación el primer entero (no nulo):</p>
+        <div>
+            <label for="EnteroA"></label>
+            <input type="number" name="EnteroA" value="" />
+        </div>
+        <p>Introduce el segundo entero:</p>
+        <div>
+            <label for="EnteroB"></label>
+            <input type="number" name="EnteroB" value="" />
+        </div>
+        <div>
+            <input type="submit" value="Enviar" />
+        </div>
+        @if (Model.hayDatos)
+        {
+            <div>
+                <p>La Identidad de Bezout entre @Model.EnteroA y @Model.EnteroB es:</p>
+                    
+                    <p id="id-bezout">@Model.BezoutString</p>
+                    <p id="mcd">mcd(@Model.EnteroA,@Model.EnteroB): @Model.McdString</p>
+                    <p id="mcm">mcm(@Model.EnteroA,@Model.EnteroB): @Model.McmString</p>
+            </div>
+        }
+    </form>
+
+</div>
